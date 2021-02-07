@@ -55,7 +55,11 @@ class MyWebService(object):
     def predict(self, task, text):   
         if task == "mention_detection":
             return predictors["onto_mention_detection"].predict_instance(text)
+        elif task == "kairos_ner":
+            return predictors["kairos_ner"].predict_instance(text)
         else:
+            ## please modify the model name according to your need; 
+            ## also remember to add it to the "preload" list in main()
             return predictors["kairos_ner"].predict_instance(text)
 
 
