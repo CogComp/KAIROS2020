@@ -53,12 +53,10 @@ class MyWebService(object):
             
 
     def predict(self, task, text):   
-        if task == "onto_mention_detection":
+        if task == "mention_detection":
             return predictors["onto_mention_detection"].predict_instance(text)
-        elif task == "kairos_ner":
-            return predictors["kairos_ner"].predict_instance(text)
         else:
-            return predictors["kairos_ner"].predict_instance(text) ##Change model name according to your need
+            return predictors["kairos_ner"].predict_instance(text)
 
 
 
@@ -66,7 +64,7 @@ predictors = {}
 if __name__ == '__main__':
     # Define the list of preloaded models here
     # We have: kairos_ner  onto_mention_detection  onto_ner  poly_conll  poly_lorelei
-    preload = ["kairos_ner","onto_mention_detectio"]
+    preload = ["kairos_ner","onto_mention_detection"]
     import torch
     print(torch.__version__)
     print ("")
