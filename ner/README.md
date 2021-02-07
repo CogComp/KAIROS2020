@@ -26,3 +26,9 @@ curl -d '{"task": "mention_detection","text" : "Barack Hussein Obama, an America
 curl -d '{"task": "kairos_ner","text" : "Barack Hussein Obama, an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review."}' -H "Content-Type: application/json" -X POST http://dickens.seas.upenn.edu:8099/ner
 ```
 
+/**
+ * If you want to do named entities recognition on other datasets or languages,
+ * you might want to first update the model name in predict() of ner.py,
+ * and then change the "task" in curl command:
+ */
+
