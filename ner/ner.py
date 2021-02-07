@@ -56,15 +56,17 @@ class MyWebService(object):
         if task == "mention_detection":
             return predictors["onto_mention_detection"].predict_instance(text)
         else:
-            return predictors["mbert_combine"].predict_instance(text)
+            return predictors["kairos_ner"].predict_instance(text)
 
 
 
 predictors = {}
 if __name__ == '__main__':
     # Define the list of preloaded models here
-    preload = ["mbert_combine","onto_mention_detection"]      
-  
+    # We have: kairos_ner  onto_mention_detection  onto_ner  poly_conll  poly_lorelei
+    preload = ["kairos_ner","onto_mention_detectio"]
+    import torch
+    print(torch.__version__)
     print ("")
     print ("Preloading models ...")
     for group in preload:   
@@ -79,7 +81,6 @@ if __name__ == '__main__':
     config = {'server.socket_host': '0.0.0.0'}
     cherrypy.config.update(config)
     cherrypy.config.update(
-        {'server.socket_host': 'dickens.seas.upenn.edu', 'server.socket_port': 8099, })  #'cors.expose.on': True
-    #cherrypy.config.update({'server.socket_port': 8099})
+        {'server.socket_host': 'dickens.seas.upenn.edu', 'server.socket_port': 8099, }) 
     cherrypy.quickstart(MyWebService())  
     
