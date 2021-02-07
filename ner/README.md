@@ -12,6 +12,17 @@ sh run.sh
 ```
 Then please open another terminal and send the request. Examples of the request:
 ```
-/* If
+/**
+ * If you only want to detect named entities (i.e. the tags are either 'NE' or 'O'),
+ * then run this:
+*/
 curl -d '{"task": "mention_detection","text" : "Barack Hussein Obama, an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review."}' -H "Content-Type: application/json" -X POST http://dickens.seas.upenn.edu:8099/ner/
+
+
+/**
+ * If you want to do named entities recognition on KAIROS (with 24 NE types and 'O'),
+ * then run this:
+*/
+curl -d '{"task": "kairos_ner","text" : "Barack Hussein Obama, an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review."}' -H "Content-Type: application/json" -X POST http://dickens.seas.upenn.edu:8099/ner
 ```
+
