@@ -10,7 +10,8 @@ Please run:
 ```
 sh run.sh
 ```
-Then please open another terminal and send the request. One example of the request:
+Then please open another terminal and send the request. Examples of the request:
 ```
+/* If
 curl -d '{"task": "mention_detection","text" : "Barack Hussein Obama, an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review."}' -H "Content-Type: application/json" -X POST http://dickens.seas.upenn.edu:8099/ner/
 ```
