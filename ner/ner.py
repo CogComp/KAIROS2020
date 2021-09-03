@@ -8,6 +8,16 @@ class MyWebService(object):
     @cherrypy.expose
     def index(self):
         return {"Hi"}
+    
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    @cherrypy.tools.json_in()
+    def info(self, **params):
+        return {"status":"online"}
+
+    @cherrypy.expose
+    def halt(self, **params):
+        cherrypy.engine.exit()
 
 
     def invalid_fields(self, data):
